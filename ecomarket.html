@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoMarket — Project | KLP Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+
+
+<body>
+  <a href="portfolio.html#projects" class="back-btn">← Back to Portfolio</a>
+
+  <main class="container">
+    <section>
+      <h2 class="project-title">EcoMarket</h2>
+
+      <div class="lead">
+        EcoMarket is a sustainability-driven ecommerce platform concept that helps shoppers and small businesses 
+        make greener choices without sacrificing convenience. It surfaces the hidden environmental costs of online
+         shopping—like packaging waste and delivery emissions—and turns them into clear, actionable insights at checkout.
+      </div>
+
+      <p class="desc">
+        Designed as a clean, mobile-friendly dashboard, EcoMarket highlights eco-labels, recommends lower-impact delivery 
+        options, and nudges users toward reusable or minimal packaging. Sellers can track the footprint of their products, 
+        compare greener alternatives, and showcase sustainability badges to build trust. This Figma prototype is currently 
+        being refined and will soon be deployed as a live web experience.      </p>
+
+      <div class="chips" aria-hidden="false">
+        <div class="chip"><div class="icon">📱 </div><div class="text">Mobile-First Shopping Experience</div></div>
+        <div class="chip"><div class="icon">⚙️</div><div class="text">Impact-Driven Recommendations</div></div>
+        <div class="chip"><div class="icon">🌿</div><div class="text">Sustainable Product Badges</div></div>
+        <div class="chip"><div class="icon">🍃</div><div class="text">Eco-Friendly</div></div>
+      </div>
+    </section>
+
+   <aside>
+  <article class="media-card">
+    <div class="media-top">
+      <!-- 👇 your new EcoMarket poster -->
+      <img src="ecomarket_qr.png" alt="EcoMarket poster" class="eco-poster" />
+    </div>
+
+    <div class="media-body">
+      <h4>EcoMarket</h4>
+      <p>Explore the full EcoMarket prototype and QR-powered experience.</p>
+    </div>
+  </article>
+</aside>
+
+  </main>
+  <!-- EcoMarket poster viewer -->
+<div id="ecoModal" class="image-modal">
+  <span class="image-modal-close">✕</span>
+  <img id="ecoModalImg" class="image-modal-content" alt="EcoMarket full poster">
+</div>
+
+<script>
+  const ecoPoster   = document.querySelector('.eco-poster');
+  const ecoModal    = document.getElementById('ecoModal');
+  const ecoModalImg = document.getElementById('ecoModalImg');
+  const ecoClose    = document.querySelector('.image-modal-close');
+
+  if (ecoPoster && ecoModal && ecoModalImg && ecoClose) {
+    ecoPoster.addEventListener('click', () => {
+      ecoModal.style.display = 'flex';
+      ecoModalImg.src = ecoPoster.src;
+    });
+
+    ecoClose.addEventListener('click', () => {
+      ecoModal.style.display = 'none';
+    });
+
+    ecoModal.addEventListener('click', (e) => {
+      if (e.target === ecoModal) {
+        ecoModal.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        ecoModal.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

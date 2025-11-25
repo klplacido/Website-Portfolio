@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Likas Dashboard — Project | KLP Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <a href="portfolio.html#projects" class="back-btn">← Back to Portfolio</a>
+
+  <main class="container">
+    <section>
+      <h2 class="project-title">Likas</h2>
+
+      <div class="lead">
+        Likas is an eco-conscious mobile app that feels like TikTok, but built around climate action and sustainable living. Users can scroll through short-form eco reels, read community blogs, and discover local green initiatives all in one feed. The experience is designed to make learning about the environment feel fun, social, and highly shareable.
+
+      <p class="desc">
+        The app also integrates EcoMarket, a curated space for sustainable products and services, so users can move seamlessly from awareness to action. The current prototype is designed in Figma with a mobile-first UI, content discovery sections for EcoTalks (blogs), EcoReels (short videos), and EcoMarket, and is being prepared for deployment as a full interactive app.      </p>
+
+      <div class="chips" aria-hidden="false">
+        <div class="chip"><div class="icon">📱 </div><div class="text">Mobile-First Shopping Experience</div></div>
+        <div class="chip"><div class="icon">⚙️</div><div class="text">Impact-Driven Recommendations</div></div>
+        <div class="chip"><div class="icon">🌿</div><div class="text">Sustainable Product Badges</div></div>
+        <div class="chip"><div class="icon">🍃</div><div class="text">Eco-Friendly</div></div>
+      </div>
+    </section>
+
+<aside>
+  <article class="media-card">
+    <div class="media-top pdf-top">
+      <div class="pdf-wrapper">
+        <iframe
+          src="PSCX -DICT-LIKAS.pdf#view=FitH"
+          title="Likas pitch deck"
+          class="pdf-frame"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="media-body">
+      <h4>Likas Prototype</h4>
+      <p>Our project for PSC DICT</p>
+    </div>
+  </article>
+</aside>
+
+
+
+  </main>
+
+  <script>
+  (function () {
+    const totalPages = 7;                      // number of pages in the PDF
+    const pdfPath = 'PSCX -DICT-LIKAS.pdf';   // PDF file path
+
+    let currentPage = 1;
+
+    const pdfFrame       = document.getElementById('likasPdf');
+    const prevBtn        = document.getElementById('pdfPrev');
+    const nextBtn        = document.getElementById('pdfNext');
+    const pageIndicator  = document.getElementById('pdfPageIndicator');
+    const dots           = document.querySelectorAll('.dots .dot');
+
+    function updateView() {
+      if (pdfFrame) {
+        pdfFrame.src = pdfPath + '#page=' + currentPage + '&zoom=page-fit';
+      }
+      if (pageIndicator) {
+        pageIndicator.textContent = currentPage + ' / ' + totalPages;
+      }
+      if (prevBtn) prevBtn.disabled = currentPage === 1;
+      if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+
+      if (dots && dots.length) {
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentPage - 1);
+        });
+      }
+    }
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', function () {
+        if (currentPage > 1) {
+          currentPage--;
+          updateView();
+        }
+      });
+
+      nextBtn.addEventListener('click', function () {
+        if (currentPage < totalPages) {
+          currentPage++;
+          updateView();
+        }
+      });
+    }
+
+    if (dots && dots.length) {
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', function () {
+          currentPage = index + 1;
+          updateView();
+        });
+      });
+    }
+
+    // initialize view
+    updateView();
+  })();
+</script>
+</body>
+</html>
+
+</body>
+</html>

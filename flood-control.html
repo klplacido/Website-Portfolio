@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flood Control Dashboard — Project | KLP Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+
+<body>
+  <a href="portfolio.html#projects" class="back-btn">← Back to Portfolio</a>
+
+  <main class="container">
+    <section>
+      <h2 class="project-title">Flood Control Dashboard</h2>
+
+      <div class="lead">
+        I built a Flood Control Projects analytics dashboard in Power BI 
+        that gives planners and auditors a single view of thousands of flood-mitigation projects and 
+        over ₱545B in contract value. The report consolidates contractor, region, district engineering office, funding year, 
+        and contract cost into a clean, card-driven layout so stakeholders can instantly see how many projects are active, 
+        how many contractors are involved, and where the money is concentrated geographically.
+      </div>
+
+      <p class="desc">
+        Bar, line, and clustered column charts highlight trends by year and funding source, 
+        compare regions and district engineering offices, and surface top contractors by project volume—making 
+        the dashboard useful for both executive overviews and detailed planning or procurement reviews.
+      </p>
+
+      <div class="chips" aria-hidden="false">
+        <div class="chip"><div class="icon"><> </div><div class="text">Data-Driven Insights</div></div>
+        <div class="chip"><div class="icon">📊</div><div class="text">Data Visualization</div></div>
+        <div class="chip"><div class="icon">🗄️</div><div class="text">Government Procurement Analytics</div></div>
+        <div class="chip"><div class="icon">⚙️</div><div class="text">Power BI Dashboards</div></div>
+        <div class="chip"><div class="icon">🧭</div><div class="text">Regional & Geospatial Views</div></div>
+      </div>
+    </section>
+
+    <aside>
+      <article class="media-card">
+        <div class="media-top">
+          <!-- 👇 make this image clickable -->
+          <img src="dashboard1.png" alt="Project visual" class="clickable-image" />
+        </div>
+
+        <div class="media-body">
+          <h4>Flood Control Dashboard</h4>
+        </div>
+      </article>
+    </aside>
+  </main>
+
+  <!-- Single image preview modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="image-modal-close">✕</span>
+    <img id="modalImg" class="image-modal-content" alt="Dashboard full view">
+  </div>
+
+  <script>
+    // Simple image viewer with X button
+    const img      = document.querySelector('.clickable-image');
+    const modal    = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.querySelector('.image-modal-close');
+
+    if (img && modal && modalImg && closeBtn) {
+      // Open viewer on image click
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+      });
+
+      // Close when X is clicked
+      closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+
+      // Close when clicking the dark background
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+
+      // Optional: close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          modal.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
