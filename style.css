@@ -1709,3 +1709,56 @@ img, video {
     padding-right: 1rem;
   }
 }
+/* ===== MOBILE FIX FOR CONTACT SECTION ===== */
+@media (max-width: 768px) {
+  .contact-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Make the contact container take full width and wrap */
+  .contact-grid, 
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  /* Ensure each contact item fills width and wraps text */
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    width: 100%;
+    word-break: break-word;
+  }
+
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Make email and links wrap properly */
+  .contact-link {
+    font-size: 0.9rem;
+    color: var(--accent);
+    text-decoration: none;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    line-height: 1.3;
+  }
+
+  /* Reduce icon size slightly for better spacing */
+  .contact-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
