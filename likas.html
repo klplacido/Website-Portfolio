@@ -42,73 +42,32 @@
     <div class="media-body">
       <h4>Likas Prototype</h4>
       <p>Our project for PSC DICT</p>
+
+      <!-- Mobile-friendly full-view button -->
+      <a
+        href="PSCX -DICT-LIKAS.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pdf-mobile-link"
+      >
+        Open pitch deck (PDF)
+      </a>
     </div>
-  </article>
-</aside>
 
+    </article>
+  </aside>
+    </main>
 
-
-  </main>
-
-  <script>
-  (function () {
-    const totalPages = 7;                      // number of pages in the PDF
-    const pdfPath = 'PSCX -DICT-LIKAS.pdf';   // PDF file path
-
-    let currentPage = 1;
-
-    const pdfFrame       = document.getElementById('likasPdf');
-    const prevBtn        = document.getElementById('pdfPrev');
-    const nextBtn        = document.getElementById('pdfNext');
-    const pageIndicator  = document.getElementById('pdfPageIndicator');
-    const dots           = document.querySelectorAll('.dots .dot');
-
-    function updateView() {
-      if (pdfFrame) {
-        pdfFrame.src = pdfPath + '#page=' + currentPage + '&zoom=page-fit';
-      }
-      if (pageIndicator) {
-        pageIndicator.textContent = currentPage + ' / ' + totalPages;
-      }
-      if (prevBtn) prevBtn.disabled = currentPage === 1;
-      if (nextBtn) nextBtn.disabled = currentPage === totalPages;
-
-      if (dots && dots.length) {
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentPage - 1);
-        });
-      }
-    }
-
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', function () {
-        if (currentPage > 1) {
-          currentPage--;
-          updateView();
-        }
-      });
-
-      nextBtn.addEventListener('click', function () {
-        if (currentPage < totalPages) {
-          currentPage++;
-          updateView();
-        }
+      <script>
+    // Make the whole PDF preview area clickable (opens full PDF)
+    const pdfWrapper = document.querySelector('.pdf-wrapper');
+    if (pdfWrapper) {
+      pdfWrapper.style.cursor = 'pointer';
+      pdfWrapper.addEventListener('click', () => {
+        window.open('PSCX -DICT-LIKAS.pdf', '_blank');
       });
     }
-
-    if (dots && dots.length) {
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', function () {
-          currentPage = index + 1;
-          updateView();
-        });
-      });
-    }
-
-    // initialize view
-    updateView();
-  })();
-</script>
+  </script>
 </body>
 </html>
 
