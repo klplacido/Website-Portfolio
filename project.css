@@ -266,24 +266,58 @@ a{
 }
 
 /* Make the Likas PDF area taller */
+/* Base PDF styles (desktop/tablet) */
 .pdf-top {
-  height: 450px;              /* adjust as you like */
+  height: 450px;
 }
 
-/* Crop the viewer nicely inside the card */
 .pdf-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;           /* hides extra edges of the viewer */
+  overflow: hidden;
   border-radius: 16px;
 }
 
-/* PDF fills the wrapper */
 .pdf-frame {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* Phone-friendly overrides */
+@media (max-width: 768px) {
+  .pdf-top {
+    height: auto;          /* let content define height */
+  }
+
+  .pdf-wrapper {
+    height: 65vh;          /* take ~65% of screen height */
+  }
+
+  .pdf-frame {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Make the card full-width with softer padding on mobile */
+  .container {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+
+  .media-card {
+    margin-bottom: 20px;
+  }
+}
+.pdf-mobile-link {
+  display: inline-flex;
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 14px;
+  color: var(--accent);
 }
 
 .image-modal-close {
