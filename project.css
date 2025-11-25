@@ -288,11 +288,12 @@ a{
 /* Phone-friendly overrides */
 @media (max-width: 768px) {
   .pdf-top {
-    height: auto;          /* let content define height */
+    display: none;      /* 👈 hide the PDF preview on phones */
   }
 
+  /* You can keep or remove these, they won't matter if pdf-top is hidden */
   .pdf-wrapper {
-    height: 65vh;          /* take ~65% of screen height */
+    height: 65vh;
   }
 
   .pdf-frame {
@@ -300,7 +301,6 @@ a{
     height: 100%;
   }
 
-  /* Make the card full-width with softer padding on mobile */
   .container {
     grid-template-columns: 1fr;
     padding: 0 16px;
@@ -310,6 +310,7 @@ a{
     margin-bottom: 20px;
   }
 }
+
 .pdf-mobile-link {
   display: inline-flex;
   margin-top: 12px;
