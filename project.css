@@ -319,7 +319,12 @@ a{
   font-size: 14px;
   color: var(--accent);
 }
-
+/* Show this link especially on mobile (you can hide it on desktop if you want) */
+@media (min-width: 769px) {
+  .pdf-mobile-link {
+    display:none;
+  }
+}
 .image-modal-close {
   position: absolute;
   top: 16px;
