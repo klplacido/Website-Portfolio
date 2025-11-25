@@ -1762,47 +1762,4 @@ img, video {
     height: 20px;
   }
 }
-/* ===== FIX FUN FACTS CIRCLES ON MOBILE ===== */
-.fun-facts, 
-.chips, 
-.facts-container {
-  display: flex;
-  flex-wrap: wrap;              /* ✅ allows wrapping within container */
-  justify-content: center;      /* ✅ centers items horizontally */
-  align-items: center;          /* ✅ vertically centers */
-  gap: 0.75rem;                 /* ✅ even spacing between circles */
-  width: 100%;                  /* ✅ ensures it doesn't overflow */
-  margin-top: 1rem;
-}
 
-.fact-circle, 
-.chip {
-  padding: 10px 16px;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font-size: 0.9rem;
-  white-space: nowrap;          /* keeps text on one line */
-  flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.fact-circle:hover, 
-.chip:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-}
-
-/* Small screen adjustments */
-@media (max-width: 768px) {
-  .fun-facts, .chips, .facts-container {
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  .fact-circle, .chip {
-    font-size: 0.8rem;
-    padding: 8px 14px;
-  }
-}
